@@ -3,7 +3,8 @@
 # UpdateMe - by TheJuicePapi
 
 -------------------------------------------------------------------------------------------------------------------------------------------
-![Screenshot_2023-05-30_13-08-32](https://github.com/TheJuicePapi/UpdateMe/assets/134894632/551da66f-6f46-422a-ab4e-287c854ccd7e)
+![Screenshot_2023-05-30_13-08-32(1)](https://github.com/TheJuicePapi/UpdateMe/assets/134894632/b521f209-0b2c-4810-a0a7-9f00ec0bda9b)
+
 
 
 DEPENDANCIES
