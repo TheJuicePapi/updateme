@@ -68,7 +68,7 @@ else:
 
 print("=============================================================")
 # Prompt for reboot
-reboot_choice = input("Do you want to reboot the system? (y: yes, n: no)\n")
+reboot_choice = input("Do you want to reboot the system? (y: YES, n: NO)\n")
 
 if reboot_choice == "y":
   # Reboot the system
