@@ -2,22 +2,36 @@
 
 art = """
 
-   __  __          __      __       __  ___
-  / / / /___  ____/ /___ _/ /____  /  |/  /__
- / / / / __ \/ __  / __ `/ __/ _ \/ /|_/ / _ }
-/ /_/ / /_/ / /_/ / /_/ / /_/  __/ /  / /  __/
-\____/ .___/\__,_/\__,_/\__/\___/_/  /_/\___/
-    /_/
+      __  __          __      __       __  ___
+     / / / /___  ____/ /___ _/ /____  /  |/  /__
+    / / / / __ \/ __  / __ `/ __/ _ \/ /|_/ / _ }
+   / /_/ / /_/ / /_/ / /_/ / /_/  __/ /  / /  __/
+   \____/ .___/\__,_/\__,_/\__/\___/_/  /_/\___/
+       /_/
 
 """
 
 print(art)
 
+
+import time 
+
+time.sleep(1) # Wait for 1 seconds
+
+print("Gathering updates for you...")
+
+time.sleep(1.5) # Wait for 1.5 seconds
+
+
 import os
 import sys
 
+print("============================================================")
+
 # Run update
 os.system('sudo apt-get update')
+
+print("============================================================")
 
 # Prompt update options
 upgrade_type = input("Choose upgrade type:\n1. Regular upgrade\n2. Distribution upgrade\n3. Exit\n")
@@ -29,9 +43,13 @@ elif upgrade_type == "2":
    # Run dist upgrade to install distribution packages
   os.system('sudo apt-get dist-upgrade')
 elif upgrade_type == "3":
-  # Exit script
+ # print("============================================================")
+  time.sleep(.5) # Wait for .5 seconds
+ # Exit script
   print("Exiting script...")
+  time.sleep(1) # Wait for 1 seconds
   art = """
+
 
    _____ _              _          __                   _           _
   |_   _| |_  __ _ _ _ | |__ ___  / _|___ _ _   _  _ __(_)_ _  __ _| |
@@ -54,8 +72,11 @@ if reboot_choice == "1":
   # Reboot the system
   os.system('sudo reboot')
 elif reboot_choice == "2":
-  # Exit the script
+ # print("============================================================")
+  time.sleep(.5) # Wait for .5 seconds
+# Exit the script
   print("Exiting script...")
+  time.sleep(1) # Wait for 1 seconds
   art = """
 
    _____ _              _          __                   _           _
