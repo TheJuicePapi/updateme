@@ -43,7 +43,6 @@ elif upgrade_type == "2":
    # Run dist upgrade to install distribution packages
   os.system('sudo apt-get dist-upgrade')
 elif upgrade_type == "3":
- # print("============================================================")
   time.sleep(.5) # Wait for .5 seconds
  # Exit script
   print("Exiting script...")
@@ -72,7 +71,6 @@ if reboot_choice == "1":
   # Reboot the system
   os.system('sudo reboot')
 elif reboot_choice == "2":
- # print("============================================================")
   time.sleep(.5) # Wait for .5 seconds
 # Exit the script
   print("Exiting script...")
