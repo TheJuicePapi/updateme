@@ -32,7 +32,7 @@ You can download using either git clone or by chosing the zip folder / raw downl
 
 For git clone installation:
 
-1. 'sudo git clone https://github.com/TheJuicePapi/updateme.git'
+1. 'git clone https://github.com/TheJuicePapi/updateme.git'
 2. 'cd updateme'
 3. 'python3 updateme.py'
 
@@ -40,8 +40,6 @@ For manual zip / raw file installation:
 
 Simply download the file then copy and paste or move the python script into the desired location.
 Then once in the directory run the script using 'python3 updateme.py' 
-
-To remove files use:  'sudo rm -r /yourfolderpath/updateme'
 
 -------------------------------
 
