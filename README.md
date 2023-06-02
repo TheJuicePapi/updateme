@@ -41,6 +41,8 @@ For manual zip / raw file installation:
 Simply download the file then copy and paste or move the python script into the desired location.
 Then once in the directory run the script using 'python3 updateme.py' 
 
+To remove files use:  'sudo rm -r /yourfolderpath/updateme'
+
 -------------------------------
 
 This script has been tested on an RPI 4b running a kali linux arm.
