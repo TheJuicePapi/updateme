@@ -27,7 +27,7 @@ After the upgrades are finished you will be asked if you would like to reboot th
 
 INSTALLATION & USAGE
 
-Simply download the zip file and place the script directly in your /home/usr directory folder.
+Simply download the raw or zip file and place the script directly in your /home/usr directory folder.
 
 Then to launch just open up a terimal and use 'python3 updateme.py'
 
