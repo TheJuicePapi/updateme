@@ -24,14 +24,35 @@ print(art)
 import time
 import os
 import sys
+import shutil
+
+def print_color(text, color):
+    """
+    Prints the specified text in the specified color.
+    """
+    colors = {
+        'black': '\033[30m',
+        'red': '\033[31m',
+        'green': '\033[32m',
+        'yellow': '\033[33m',
+        'blue': '\033[34m',
+        'magenta': '\033[35m',
+        'cyan': '\033[36m',
+        'white': '\033[37m',
+        'reset': '\033[0m'
+    }
+    if color in colors:
+        print(colors[color] + text + colors['reset'])
+    else:
+        print(text)
 
 time.sleep(1) # Wait for 1 seconds
-print("     []          *           *          *              *             []")
-print("     ||==============================================================||")
-print("     ||                 Gathering updates for you...                 ||")
-print("     ||==============================================================||")
-print("     []                                                              []")
-print("                                                                       ")
+print("      []          *           *          *              *             []")
+print("      ||==============================================================||")
+print("      ||                 Gathering updates for you...                 ||")
+print("      ||==============================================================||")
+print("      []                                                              []")
+print("                                                                        ")
 time.sleep(1.5) # Wait for 1.5 seconds
 
 
@@ -40,18 +61,19 @@ os.system('sudo apt-get update')
 
 
 # Prompt update options
-print("                                                         ")
-print("                  ************************************** ")
-print("                  * ╔════════════════════════════════╗ * ")
-print("                  * ║           Upgrade Type         ║ * ")
-print("                  * ╠════════════════════════════════╣ * ")
-print("                  * ║ 1. Regular upgrade             ║ * ")
-print("                  * ║ 2. Distribution upgrade        ║ * ")
-print("                  * ║ 3. Apt autoremove              ║ * ")
-print("                  * ║ 4. Exit                        ║ * ")
-print("                  * ╚════════════════════════════════╝ * ")
-print("                  ************************************** ")
-print("                                                         ")
+print("                                                          ")
+print("                   ************************************** ")
+print("                   * ╔════════════════════════════════╗ * ")
+print("                   * ║          Upgrade Type          ║ * ")
+print("                   * ╠════════════════════════════════╣ * ")
+print("                   * ║ 1. Regular upgrade             ║ * ")
+print("                   * ║ 2. Distribution upgrade        ║ * ")
+print("                   * ║ 3. Full upgrade                ║ * ")
+print("                   * ║ 4. Apt autoremove              ║ * ")
+print("                   * ║ 5. Exit                        ║ * ")
+print("                   * ╚════════════════════════════════╝ * ")
+print("                   ************************************** ")
+print("                                                          ")
 upgrade_type = input("Choose an upgrade type: ")
 
 if upgrade_type == "1":
@@ -61,13 +83,16 @@ elif upgrade_type == "2":
    # Run dist upgrade to install distribution packages
   os.system('sudo apt-get dist-upgrade')
 elif upgrade_type == "3":
+# Run full upgrade on system
+  os.system('sudo apt-get full-upgrade')
+elif upgrade_type == "4":
    # Run autoremove unused packages packages
   os.system('sudo apt autoremove')
-elif upgrade_type == "4":
+elif upgrade_type == "5":
   time.sleep(.5) # Wait for .5 seconds
  # Exit script
   print("                                             ")
-  print("                           ( EXITING SCRIPT )")
+  print_color("                            ( EXITING SCRIPT )", "red")
   time.sleep(1) # Wait for 1 seconds
   art = """
 
@@ -90,13 +115,13 @@ else:
 
 # Prompt for reboot
 reboot_choice = input(
-"                                                        \n"
-"                  * ╔════════════════════════════════╗ *\n"
-"                *** ║   Do you want to reboot the    ║ ***\n"
-"               **** ║            system?             ║ ****\n"
-"               **** ╟────────────────────────────────╢ ****\n"
-"                *** ║        (y: YES, n: NO)         ║ ***\n"
-"                  * ║================================║ *\n"
+"                                                         \n"
+"                   * ╔════════════════════════════════╗ *\n"
+"                 *** ║   Do you want to reboot the    ║ ***\n"
+"                **** ║            system?             ║ ****\n"
+"                **** ╟────────────────────────────────╢ ****\n"
+"                 *** ║        (y: YES, n: NO)         ║ ***\n"
+"                   * ║================================║ *\n"
 
 )
 print("Please chose an option")
@@ -107,7 +132,7 @@ elif reboot_choice == "n":
   time.sleep(.5) # Wait for .5 seconds
 # Exit the script
   print("                                              ")
-  print("                            ( EXITING SCRIPT )")
+  print_color("                            ( EXITING SCRIPT )", "red")
   time.sleep(1) # Wait for 1 seconds
   art = """
 
