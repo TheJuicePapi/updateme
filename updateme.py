@@ -1,154 +1,191 @@
-
-art = """
-
-
-                          d8b
-                          88P              d8P
-                         d88            d888888P
- ?88   d8P?88,.d88b, d888888   d888b8b    ?88'   d8888b  88bd8b,d88b  d8888b
- d88   88 `?88'  ?88d8P' ?88  d8P' ?88    88P   d8b_,dP  88P'`?8P'?8bd8b_,dP
- ?8(  d88   88b  d8P88b  ,88b 88b  ,88b   88b   88b     d88  d88  88P88b
- `?88P'?8b  888888P'`?88P'`88b`?88P'`88b  `?8b  `?888P'd88' d88'  88b`?888P'
-            88P'
- ========  d88  ============================================================
- ========  ?8P  ============================================================
-  *             *          *            *           *            *         *
-*   *       *      *  *         *    *      *          *     *      *     *
- *     *       *         *   *          *        *              *      *    *
-   *      *         *            *          *        *      *       *
-"""
-
-print(art)
-
-
+#!/usr/bin/python3
 import time
 import os
 import sys
 import shutil
 
-def print_color(text, color):
-    """
-    Prints the specified text in the specified color.
-    """
-    colors = {
-        'black': '\033[30m',
-        'red': '\033[31m',
-        'green': '\033[32m',
-        'yellow': '\033[33m',
-        'blue': '\033[34m',
-        'magenta': '\033[35m',
-        'cyan': '\033[36m',
-        'white': '\033[37m',
-        'reset': '\033[0m'
-    }
-    if color in colors:
-        print(colors[color] + text + colors['reset'])
-    else:
-        print(text)
-
-time.sleep(1) # Wait for 1 seconds
-print("      []          *           *          *              *             []")
-print("      ||==============================================================||")
-print("      ||                 Gathering updates for you...                 ||")
-print("      ||==============================================================||")
-print("      []                                                              []")
-print("                                                                        ")
-time.sleep(1.5) # Wait for 1.5 seconds
+from subprocess import run
+from pathlib import Path
 
 
-# Run update
-os.system('sudo apt-get update')
+class UpdateMe:
+    def __init__(self):
+        print(self.displayArt("start"))
+        self.update()
+
+    def displayArt(self, art):
+        """
+        Call this method, to display art.
+        """
+        start = """
+                                d8b
+                                88P              d8P
+                                d88            d888888P
+        ?88   d8P?88,.d88b, d888888   d888b8b    ?88'   d8888b  88bd8b,d88b  d8888b
+        d88   88 `?88'  ?88d8P' ?88  d8P' ?88    88P   d8b_,dP  88P'`?8P'?8bd8b_,dP
+        ?8(  d88   88b  d8P88b  ,88b 88b  ,88b   88b   88b     d88  d88  88P88b
+        `?88P'?8b  888888P'`?88P'`88b`?88P'`88b  `?8b  `?888P'd88' d88'  88b`?888P'
+                    88P'
+        ========  d88  ============================================================
+        ========  ?8P  ============================================================
+        *             *          *            *           *            *         *
+        *   *       *      *  *         *    *      *          *     *      *     *
+        *     *       *         *   *          *        *              *      *    *
+        *      *         *            *          *        *      *       *
+        """
+
+        thank_you = """
+
+        +========================================================================+
+        ||  _____ _              _          __                   _           _  ||
+        || |_   _| |_  __ _ _ _ | |__ ___  / _|___ _ _   _  _ __(_)_ _  __ _| | ||
+        ||   | | | ' \/ _` | ' \| / /(_-< |  _/ _ \ '_| | || (_-< | ' \/ _` |_| ||
+        ||   |_| |_||_\__,_|_||_|_\_\/__/ |_| \___/_|    \_,_/__/_|_||_\__, (_) ||
+        ||                                                              |___/   ||
+        +========================================================================+
+
+        """
+        wait = """
+                      []          *           *          *              *             []
+                      ||==============================================================||
+                      ||                 Gathering updates for you...                 ||
+                      ||==============================================================||
+                      []                                                              []
+        """
+        prompt = """
+                                   **************************************
+                                   * ╔════════════════════════════════╗ *
+                                   * ║          Upgrade Type          ║ *
+                                   * ╠════════════════════════════════╣ *
+                                   * ║ 1. Regular upgrade             ║ *
+                                   * ║ 2. Distribution upgrade        ║ *
+                                   * ║ 3. Full upgrade                ║ *
+                                   * ║ 4. Apt autoremove              ║ *
+                                   * ║ 5. Exit                        ║ *
+                                   * ╚════════════════════════════════╝ *
+                                   **************************************
+        """
+        reboot = """
+                                                                      \n
+                                * ╔════════════════════════════════╗ *\n
+                              *** ║   Do you want to reboot the    ║ ***\n
+                             **** ║            system?             ║ ****\n
+                             **** ╟────────────────────────────────╢ ****\n
+                              *** ║        (y: YES, n: NO)         ║ ***\n
+                                * ║================================║ *\n"
+        """
+        if art == "start":
+            return start
+        elif art == "thank_you":
+            return thank_you
+        elif art == "wait":
+            return wait
+        elif art == "prompt":
+            return prompt
+        elif art == "reboot":
+            return reboot
+
+    def print_color(self, text, color):
+        """
+        Prints the specified text in the specified color.
+        """
+        colors = {
+            "black": "\033[30m",
+            "red": "\033[31m",
+            "green": "\033[32m",
+            "yellow": "\033[33m",
+            "blue": "\033[34m",
+            "magenta": "\033[35m",
+            "cyan": "\033[36m",
+            "white": "\033[37m",
+            "reset": "\033[0m",
+        }
+        return colors[color] + text + colors["reset"] if color in colors else text
+
+    def update(self):
+        """
+        Run update at start of program.
+        """
+        time.sleep(1)  # Wait for 1 seconds
+        print(self.displayArt("wait"))
+        time.sleep(1.5)  # Wait for 1.5 seconds
+
+        # Run update
+        os.system("sudo apt-get update")
+
+    def exitScript(self, message):
+        time.sleep(0.5)  # Wait for .5 seconds
+        # Exit script
+        print(self.print_color("\n                            ( EXITING SCRIPT )", "red"))
+        time.sleep(1)  # Wait for 1 seconds
+        print(self.displayArt(message))
+        sys.exit()
+
+    def createShortcut(self):
+        """
+        creates a hard symbolic link in usr/bin.
+        """
+        create_link = input("Do you want to create link?[y/n]:")
+
+        file_name = Path(__file__).resolve()
+        commands = [f"cp -l {file_name} updateme", "chmod +x updateme", "mv updateme /usr/bin/updateme"]
+
+        if "y" in create_link:
+            if Path("/usr/bin/updateme").exists():
+                run("rm /usr/bin/updateme".split())  # [WARNING]: DO NOT MODIFY THIS COMMAND (-f)
+            for command in commands:
+                run(command.split())
+            print("Added to terminal use command: <updatme>")
+
+    def promtCommands(self):
+        """
+        Main program: Show prompts.
+        """
+        print(self.displayArt("prompt"))
+        self.createShortcut()
+
+        upgrade_commands = [
+            "sudo apt-get upgrade",  # 0
+            "sudo apt-get dist-upgrade",  # 1
+            "sudo apt-get full-upgrade",  # 2
+            "sudo apt autoremove",  # 3
+        ]
+        while True:
+            try:
+                UPGRADE_TYPE = int(input("Choose an upgrade type: ")) - 1
+
+                if UPGRADE_TYPE == 4:
+                    self.exitScript("thank_you")
+                else:
+                    os.system(upgrade_commands[UPGRADE_TYPE])
+            except ValueError:
+                print("Invalid input ~[1-5]")
+                continue
+            except IndexError:
+                print("Invalid input ~[1-5]")
+                continue
+            except KeyboardInterrupt:
+                self.exitScript("thank_you")
+
+        # self.rebootSys()
+
+    def rebootSys(self):
+        """
+        Call this to ask for Reboot.
+        """
+        while True:
+            reboot_choice = input(self.displayArt("reboot") + "\nPlease choose an option:")
+
+            if "y" in reboot_choice:
+                # Reboot the system
+                os.system("sudo reboot")
+            elif "n" in reboot_choice:
+                self.exitScript("thank_you")
+            else:
+                print("Invalid input.")
+                continue
 
 
-# Prompt update options
-print("                                                          ")
-print("                   ************************************** ")
-print("                   * ╔════════════════════════════════╗ * ")
-print("                   * ║          Upgrade Type          ║ * ")
-print("                   * ╠════════════════════════════════╣ * ")
-print("                   * ║ 1. Regular upgrade             ║ * ")
-print("                   * ║ 2. Distribution upgrade        ║ * ")
-print("                   * ║ 3. Full upgrade                ║ * ")
-print("                   * ║ 4. Apt autoremove              ║ * ")
-print("                   * ║ 5. Exit                        ║ * ")
-print("                   * ╚════════════════════════════════╝ * ")
-print("                   ************************************** ")
-print("                                                          ")
-upgrade_type = input("Choose an upgrade type: ")
-
-if upgrade_type == "1":
-   # Run upgrade to install package updates
-  os.system('sudo apt-get upgrade')
-elif upgrade_type == "2":
-   # Run dist upgrade to install distribution packages
-  os.system('sudo apt-get dist-upgrade')
-elif upgrade_type == "3":
-# Run full upgrade on system
-  os.system('sudo apt-get full-upgrade')
-elif upgrade_type == "4":
-   # Run autoremove unused packages packages
-  os.system('sudo apt autoremove')
-elif upgrade_type == "5":
-  time.sleep(.5) # Wait for .5 seconds
- # Exit script
-  print("                                             ")
-  print_color("                            ( EXITING SCRIPT )", "red")
-  time.sleep(1) # Wait for 1 seconds
-  art = """
-
- +========================================================================+
- ||  _____ _              _          __                   _           _  ||
- || |_   _| |_  __ _ _ _ | |__ ___  / _|___ _ _   _  _ __(_)_ _  __ _| | ||
- ||   | | | ' \/ _` | ' \| / /(_-< |  _/ _ \ '_| | || (_-< | ' \/ _` |_| ||
- ||   |_| |_||_\__,_|_||_|_\_\/__/ |_| \___/_|    \_,_/__/_|_||_\__, (_) ||
- ||                                                              |___/   ||
- +========================================================================+
-
-  """
-
-  print(art)
-
-
-  sys.exit()
-else:
-  print("Invalid input.")
-
-# Prompt for reboot
-reboot_choice = input(
-"                                                         \n"
-"                   * ╔════════════════════════════════╗ *\n"
-"                 *** ║   Do you want to reboot the    ║ ***\n"
-"                **** ║            system?             ║ ****\n"
-"                **** ╟────────────────────────────────╢ ****\n"
-"                 *** ║        (y: YES, n: NO)         ║ ***\n"
-"                   * ║================================║ *\n"
-
-)
-print("Please chose an option")
-if reboot_choice == "y":
-  # Reboot the system
-  os.system('sudo reboot')
-elif reboot_choice == "n":
-  time.sleep(.5) # Wait for .5 seconds
-# Exit the script
-  print("                                              ")
-  print_color("                            ( EXITING SCRIPT )", "red")
-  time.sleep(1) # Wait for 1 seconds
-  art = """
-
- +========================================================================+
- ||  _____ _              _          __                   _           _  ||
- || |_   _| |_  __ _ _ _ | |__ ___  / _|___ _ _   _  _ __(_)_ _  __ _| | ||
- ||   | | | ' \/ _` | ' \| / /(_-< |  _/ _ \ '_| | || (_-< | ' \/ _` |_| ||
- ||   |_| |_||_\__,_|_||_|_\_\/__/ |_| \___/_|    \_,_/__/_|_||_\__, (_) ||
- ||                                                              |___/   ||
- +========================================================================+
-
-  """
-
-  print(art)
-
-
-  sys.exit()
-else:
-  print("Invalid input.")
+if __name__ == "__main__":
+    upd = UpdateMe()
+    upd.promtCommands()
