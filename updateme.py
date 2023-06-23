@@ -126,9 +126,9 @@ class UpdateMe:
         """
         creates a hard symbolic link in usr/bin.
         """
-        create_link = input("Do you want to create link?[y/n]:")
-
         file_name = Path(__file__).resolve()
+        create_link = 'n' if file_name.name == "updateme" else input("Do you want to create link?[y/n]:")
+
         commands = [
             f"sudo cp -l {file_name} updateme",
             "sudo chmod +x updateme",
