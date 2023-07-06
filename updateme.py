@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 import time
 import os
 import sys
@@ -19,61 +20,69 @@ class UpdateMe:
         Call this method, to display art.
         """
         start = """
-                                d8b
-                                88P              d8P
-                                d88            d888888P
-        ?88   d8P?88,.d88b, d888888   d888b8b    ?88'   d8888b  88bd8b,d88b  d8888b
-        d88   88 `?88'  ?88d8P' ?88  d8P' ?88    88P   d8b_,dP  88P'`?8P'?8bd8b_,dP
-        ?8(  d88   88b  d8P88b  ,88b 88b  ,88b   88b   88b     d88  d88  88P88b
-        `?88P'?8b  888888P'`?88P'`88b`?88P'`88b  `?8b  `?888P'd88' d88'  88b`?888P'
-                    88P'
-        ========  d88  ============================================================
-        ========  ?8P  ============================================================
-        *             *          *            *           *            *         *
-        *   *       *      *  *         *    *      *          *     *      *     *
-        *     *       *         *   *          *        *              *      *    *
-        *      *         *            *          *        *      *       *
+                             d8b
+                             88P              d8P
+                             d88            d888888P
+     ?88   d8P?88,.d88b, d888888   d888b8b    ?88'   d8888b  88bd8b,d88b  d8888b
+     d88   88 `?88'  ?88d8P' ?88  d8P' ?88    88P   d8b_,dP  88P'`?8P'?8bd8b_,dP
+     ?8(  d88   88b  d8P88b  ,88b 88b  ,88b   88b   88b     d88  d88  88P88b
+     `?88P'?8b  888888P'`?88P'`88b`?88P'`88b  `?8b  `?888P'd88' d88'  88b`?888P'
+                 88P'
+     ========  d88  ============================================================
+     ========  ?8P  ============================================================
+     *             *          *            *           *            *         *
+   *    *      *      *  *         *    *      *          *     *      *    *    *
+     *    *       *         *   *          *       *               *     *    *
+   *    *      *       *             *         *        *      *       *    *    *
+           *                  *                    *               *
         """
 
         thank_you = """
 
-        +========================================================================+
-        ||  _____ _              _          __                   _           _  ||
-        || |_   _| |_  __ _ _ _ | |__ ___  / _|___ _ _   _  _ __(_)_ _  __ _| | ||
-        ||   | | | ' \/ _` | ' \| / /(_-< |  _/ _ \ '_| | || (_-< | ' \/ _` |_| ||
-        ||   |_| |_||_\__,_|_||_|_\_\/__/ |_| \___/_|    \_,_/__/_|_||_\__, (_) ||
-        ||                                                              |___/   ||
-        +========================================================================+
+       +========================================================================+
+       ||  _____ _              _          __                   _           _  ||
+       || |_   _| |_  __ _ _ _ | |__ ___  / _|___ _ _   _  _ __(_)_ _  __ _| | ||
+       ||   | | | ' \/ _` | ' \| / /(_-< |  _/ _ \ '_| | || (_-< | ' \/ _` |_| ||
+       ||   |_| |_||_\__,_|_||_|_\_\/__/ |_| \___/_|    \_,_/__/_|_||_\__, (_) ||
+       ||                                                              |___/   ||
+       +========================================================================+
 
         """
         wait = """
-                      []          *           *          *              *             []
-                      ||==============================================================||
-                      ||                 Gathering updates for you...                 ||
-                      ||==============================================================||
-                      []                                                              []
+
+         []                                                               []
+         ||===============================================================||
+         ||                  Gathering updates for you...                 ||
+         ||===============================================================||
+         []                                                               []
+  
         """
         prompt = """
-                                   **************************************
-                                   * ╔════════════════════════════════╗ *
-                                   * ║          Upgrade Type          ║ *
-                                   * ╠════════════════════════════════╣ *
-                                   * ║ 1. Regular upgrade             ║ *
-                                   * ║ 2. Distribution upgrade        ║ *
-                                   * ║ 3. Full upgrade                ║ *
-                                   * ║ 4. Apt autoremove              ║ *
-                                   * ║ 5. Exit                        ║ *
-                                   * ╚════════════════════════════════╝ *
-                                   **************************************
-        """
+
+                        **************************************
+                        * ╔════════════════════════════════╗ *
+                        * ║          Upgrade Type          ║ *
+                        * ╠════════════════════════════════╣ *
+                        * ║ 1. Regular upgrade             ║ *
+                        * ║ 2. Distribution upgrade        ║ *
+                        * ║ 3. Full upgrade                ║ *
+                        * ║ 4. Apt autoremove              ║ *
+                        * ║ 5. Exit                        ║ *
+                        * ╚════════════════════════════════╝ *
+                        **************************************
+       
+         """
         reboot = """
-                                                                      \n
-                                * ╔════════════════════════════════╗ *\n
-                              *** ║   Do you want to reboot the    ║ ***\n
-                             **** ║            system?             ║ ****\n
-                             **** ╟────────────────────────────────╢ ****\n
-                              *** ║        (y: YES, n: NO)         ║ ***\n
-                                * ║================================║ *\n"
+
+
+                        * ╔════════════════════════════════╗ *
+                      *** ║   Do you want to reboot the    ║ ***
+                     **** ║            system?             ║ ****
+                     **** ╟────────────────────────────────╢ ****
+                      *** ║        (y: YES, n: NO)         ║ ***
+                        * ║================================║ *
+
+
         """
         if art == "start":
             return start
@@ -117,7 +126,7 @@ class UpdateMe:
     def exitScript(self, message):
         time.sleep(0.5)  # Wait for .5 seconds
         # Exit script
-        print(self.print_color("\n                            ( EXITING SCRIPT )", "red"))
+        print(self.print_color("\n                                  ( EXITING SCRIPT )", "red"))
         time.sleep(1)  # Wait for 1 seconds
         print(self.displayArt(message))
         sys.exit()
@@ -127,7 +136,7 @@ class UpdateMe:
         creates a hard symbolic link in usr/bin.
         """
         file_name = Path(__file__).resolve()
-        create_link = 'n' if file_name.name == "updateme" else input("Do you want to create link?[y/n]:")
+        create_link = 'n' if file_name.name == "updateme" else input("                Do you want to create a shortcut for updateme? [y/n]")
 
         commands = [
             f"sudo cp -l {file_name} updateme",
@@ -157,7 +166,7 @@ class UpdateMe:
         ]
         while True:
             try:
-                UPGRADE_TYPE = int(input("Choose an upgrade type: ")) - 1
+                UPGRADE_TYPE = int(input("                               Choose an upgrade type: ")) - 1
 
                 if UPGRADE_TYPE == 4:
                     self.exitScript("thank_you")
@@ -180,7 +189,7 @@ class UpdateMe:
         Call this to ask for Reboot.
         """
         while True:
-            reboot_choice = input(self.displayArt("reboot") + "\nPlease choose an option:")
+            reboot_choice = input(self.displayArt("reboot") + "\n                               Please choose an option:")
 
             if "y" in reboot_choice:
                 # Reboot the system
