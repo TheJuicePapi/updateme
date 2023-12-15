@@ -16,4 +16,6 @@ apt-get upgrade -y
 # Create symbolic link for updateme.py
 ln -s "$(pwd)/updateme.py" /usr/local/bin/updateme
 
+clear
+
 echo "Installation complete and shortcut created! You can now run updateme.py from any directory by simply typing 'updateme'."
