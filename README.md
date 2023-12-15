@@ -27,23 +27,22 @@ This is an automated python script to start the system update process. It will t
 If you chose none the script will exit and if you chose to upgrade the script will go ahead and do that for you.
 After the upgrades are finished you will be asked if you would like to reboot the system or not.
 
+install.sh will also create a shortcut so you can launch the script anywhere by simply typing 'updateme'
+
 -------------------------------
 
 INSTALLATION & USAGE
 
-You can download using either git clone or by chosing the zip folder / raw download option.
 
-For git clone installation:
+Git clone installation:
 
 1. 'git clone https://github.com/TheJuicePapi/updateme.git'
 2. 'cd updateme'
-3. 'python3 updateme.py'
+3. 'chmod +x install.sh'
+4. 'sudo ./install.sh'
+5. run the script with 'updateme'
 
-For manual zip / raw file installation:
-
-Simply download the file then copy and paste or move the python script into the desired location.
-Then once in the directory run the script using 'python3 updateme.py' 
-
+ 
 -------------------------------
 
 This script has been tested on an RPI 4b running a kali linux arm.
