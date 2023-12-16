@@ -36,11 +36,11 @@ INSTALLATION & USAGE
 
 Git clone installation:
 
-1. 'sudo git clone https://github.com/TheJuicePapi/updateme.git'
+1. 'git clone https://github.com/TheJuicePapi/updateme.git'
 2. 'cd updateme'
-3. 'chmod +x install.sh'
+3. 'sudo chmod +x install.sh updateme.py'
 4. 'sudo ./install.sh'
-5. run the script with 'updateme'
+5. run the script with 'sudo updateme'
 
  
 -------------------------------
