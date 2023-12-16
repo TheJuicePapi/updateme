@@ -40,7 +40,7 @@ Git clone installation:
 2. 'cd updateme'
 3. 'sudo chmod +x install.sh updateme.py'
 4. 'sudo ./install.sh'
-5. run the script with 'sudo updateme'
+5. Exit and open a new terminal to use 'updateme' shortcut
 
  
 -------------------------------
