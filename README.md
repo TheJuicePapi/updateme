@@ -3,11 +3,12 @@
 # UpdateMe - by TheJuicePapi
 
 -------------------------------------------------------------------------------------------------------------------------------------------
-![Screenshot_2023-06-04_17-27-35](https://github.com/TheJuicePapi/updateme/assets/134894632/aabdfbcb-1135-40e1-a12f-fd4f6c24da94)
 
-![Screenshot_2023-06-04_17-28-01](https://github.com/TheJuicePapi/updateme/assets/134894632/563e5a77-ad68-411a-a9d2-ad597f778bbc)
+![Screenshot_2023-12-20_02-42-41](https://github.com/TheJuicePapi/updateme/assets/134894632/e9fa1dba-f755-4a1d-a9a4-8a3ae389b0a2)
 
+![Screenshot_2023-12-20_02-43-17](https://github.com/TheJuicePapi/updateme/assets/134894632/635021bc-f690-4945-a4cf-592e2eb7847c)
 
+![Screenshot_2023-12-20_02-43-33](https://github.com/TheJuicePapi/updateme/assets/134894632/b9deef8d-563a-48cc-9444-04c576d64e3e)
 
 
 
