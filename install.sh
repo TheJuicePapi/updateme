@@ -18,4 +18,4 @@ ln -s "$(pwd)/updateme.py" /usr/local/bin/updateme
 
 clear
 
-echo "Installation complete and shortcut created! You can now run updateme.py from any directory by simply typing 'updateme'."
+echo "Installation complete and shortcut created! Launch a new terminal and you'll be able to run 'updateme' from any directory!"
