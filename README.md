@@ -1,34 +1,44 @@
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-# UpdateMe - by TheJuicePapi
+ Updateme - by TheJuicePapi
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-![Screenshot_2023-12-20_02-42-41](https://github.com/TheJuicePapi/updateme/assets/134894632/e9fa1dba-f755-4a1d-a9a4-8a3ae389b0a2)
+![Screenshot_2024-08-14_23-14-49](https://github.com/user-attachments/assets/bea28a0d-8dd6-4745-8a25-f39ae75d48a8)
+![Screenshot_2024-08-14_23-25-46](https://github.com/user-attachments/assets/68f7d9cc-ae44-4786-9be1-2a4c54919f36)
+![Screenshot_2024-08-14_23-28-14](https://github.com/user-attachments/assets/8c03906e-e453-4cb4-a39f-042233a1ec8c)
 
-![Screenshot_2023-12-20_02-43-17](https://github.com/TheJuicePapi/updateme/assets/134894632/635021bc-f690-4945-a4cf-592e2eb7847c)
+------------------------------------------------------------------------------------------------------------------------------------------
 
-![Screenshot_2023-12-20_02-43-33](https://github.com/TheJuicePapi/updateme/assets/134894632/b9deef8d-563a-48cc-9444-04c576d64e3e)
-
-
-
-
+Overview
 
 
+Updateme is a Python script designed to streamline system updates and maintenance tasks on Debian-based Linux distributions. It provides a comprehensive menu for managing upgrades, installing and removing packages, and checking system information.
+
+------------------------------------------------------------
+
+Key Features
 
 
-DEPENDANCIES
+  *  Regular Upgrade: Perform a standard upgrade of installed packages.
+  *  Distribution Upgrade: Upgrade the entire distribution.
+  *  Full Upgrade: Perform a full upgrade of the system, including handling dependencies.
+  *  Upgrade Specific Package: Upgrade a specific package.
+  *  Autoremove: Remove unnecessary packages.
+  *  Check System Information: Display system information including kernel version and CPU details.
+  *  Install a Package: Install a new package.
+  *  Remove a Package: Remove an existing package.
+  *  Search Packages: Search for packages in the repository.
+  *  List Available Upgrades: List packages with available updates.
+  *  Memory Usage: Display memory usage statistics.
+  *  System Load: Show system load statistics.
+  *  Disk Usage Report: Report on disk usage.
+  *  Network Status: Display network interface status.
+  *  Hardware Information: Show hardware information.
+  *  Auto-Update System: Perform an automatic update of the system.
+  *  Reboot: Reboot the system.
+  *  Exit: Exit the script.
 
-You will need a distribution that recognizes 'sudo apt-get update' commands. Ubuntu or other Debian-based systems.
--------------------------------
-
-DESCRIPTION
-
-This is an automated python script to start the system update process. It will then prompt you what kind of update you would like to do.
-If you chose none the script will exit and if you chose to upgrade the script will go ahead and do that for you.
-After the upgrades are finished you will be asked if you would like to reboot the system or not.
-
-install.sh will also create a shortcut so you can launch the script anywhere by simply typing 'updateme'
 
 -------------------------------
 
@@ -45,5 +55,14 @@ Git clone installation:
 
  
 -------------------------------
+
+Dependencies
+
+
+For this script to work, you will need Python 3 and apt package manager. The install.sh script should automatically handle these dependencies. If needed, manually install them using:
+
+    sudo apt-get install -y python3
+    
+------------------------------
 
 This script has been tested on an RPI 4b running a kali linux arm.
