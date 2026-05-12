@@ -1,8 +1,7 @@
--------------------------------------------------------------------------------------------------------------------------------------------
+<img width="1536" height="1024" alt="ChatGPT Image May 12, 2026, 10_08_06 AM" src="https://github.com/user-attachments/assets/b0a4caa9-95de-42b2-9ba6-bca5d3701722" />
 
- Updateme - by TheJuicePapi
+# Updateme - by TheJuicePapi
 
--------------------------------------------------------------------------------------------------------------------------------------------
 
 ![Screenshot_2024-08-14_23-14-49](https://github.com/user-attachments/assets/bea28a0d-8dd6-4745-8a25-f39ae75d48a8)
 ![Screenshot_2024-08-14_23-25-46](https://github.com/user-attachments/assets/68f7d9cc-ae44-4786-9be1-2a4c54919f36)
