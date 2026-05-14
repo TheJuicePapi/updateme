@@ -1,4 +1,4 @@
-<img width="1536" height="1024" alt="ChatGPT Image May 12, 2026, 10_08_06 AM" src="https://github.com/user-attachments/assets/b0a4caa9-95de-42b2-9ba6-bca5d3701722" />
+<img width="1536" height="1024" alt="Updateme Image May 12, 2026, 10_08_06 AM" src="https://github.com/user-attachments/assets/b0a4caa9-95de-42b2-9ba6-bca5d3701722" />
 
 # Updateme - by TheJuicePapi
 
