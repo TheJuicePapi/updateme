@@ -1,67 +1,121 @@
-<img width="1536" height="1024" alt="Updateme Image May 12, 2026, 10_08_06 AM" src="https://github.com/user-attachments/assets/b0a4caa9-95de-42b2-9ba6-bca5d3701722" />
+<img width="1448" height="1086" alt="UpdatemeV2 0 May 14, 2026" src="https://github.com/user-attachments/assets/cca33fa5-756c-43e0-ac50-e3c173df4abf" />
+
 
 # Updateme - by TheJuicePapi
 
-
-![Screenshot_2024-08-14_23-14-49](https://github.com/user-attachments/assets/bea28a0d-8dd6-4745-8a25-f39ae75d48a8)
-![Screenshot_2024-08-14_23-25-46](https://github.com/user-attachments/assets/68f7d9cc-ae44-4786-9be1-2a4c54919f36)
-![Screenshot_2024-08-14_23-28-14](https://github.com/user-attachments/assets/8c03906e-e453-4cb4-a39f-042233a1ec8c)
-
-------------------------------------------------------------------------------------------------------------------------------------------
-
-Overview
+<img width="1032" height="1012" alt="updatemeV2 0" src="https://github.com/user-attachments/assets/2323e422-3a5c-4e32-a278-091d6dbe2295" />
 
 
-Updateme is a Python script designed to streamline system updates and maintenance tasks on Debian-based Linux distributions. It provides a comprehensive menu for managing upgrades, installing and removing packages, and checking system information.
+---
 
-------------------------------------------------------------
+## Overview
 
-Key Features
+Updateme is an interactive Python helper for routine maintenance on Debian-based Linux distributions. It wraps common `apt`, system information, and housekeeping commands in a simple terminal menu.
 
+## What changed in this polish pass
 
-  *  Regular Upgrade: Perform a standard upgrade of installed packages.
-  *  Distribution Upgrade: Upgrade the entire distribution.
-  *  Full Upgrade: Perform a full upgrade of the system, including handling dependencies.
-  *  Upgrade Specific Package: Upgrade a specific package.
-  *  Autoremove: Remove unnecessary packages.
-  *  Check System Information: Display system information including kernel version and CPU details.
-  *  Install a Package: Install a new package.
-  *  Remove a Package: Remove an existing package.
-  *  Search Packages: Search for packages in the repository.
-  *  List Available Upgrades: List packages with available updates.
-  *  Memory Usage: Display memory usage statistics.
-  *  System Load: Show system load statistics.
-  *  Disk Usage Report: Report on disk usage.
-  *  Network Status: Display network interface status.
-  *  Hardware Information: Show hardware information.
-  *  Auto-Update System: Perform an automatic update of the system.
-  *  Reboot: Reboot the system.
-  *  Exit: Exit the script.
+- Safer command execution with `subprocess.run([...])` instead of shell-formatted commands.
+- Package names and search terms are passed as arguments, reducing accidental shell injection risk.
+- Better startup checks for Linux, `apt`, and `apt-get` before showing the menu.
+- Automatic `sudo` usage when needed, while still working cleanly when already running as root.
+- Confirm-before-reboot behavior.
+- `ip addr show` is preferred for network status, with `ifconfig` used only as a fallback.
+- Optional `--skip-initial-update` flag for opening the menu immediately.
+- Redesigned command center menu with grouped sections, icons, cleaner borders, and short descriptions for each action.
+- Expanded from a basic updater into a 39-option maintenance cockpit with package repair, package holds, cache cleanup, network checks, service checks, and journal error views.
+- Added a brighter banner, a wider two-column command center, category-specific menu colors, and interactive-only confirmations for reboot and power-off actions.
+- Idempotent installer that installs Python 3, makes the script executable, and refreshes the `/usr/local/bin/updateme` symlink.
 
+## Key features
 
--------------------------------
+### Update & repair
 
-INSTALLATION & USAGE
+- Refresh package lists
+- Regular, distribution, and full upgrades
+- Simulate upgrades before applying changes
+- Fix broken packages
+- Configure interrupted `dpkg` installs
+- Auto-update system
 
+### Package lab
 
-Git clone installation:
+- Upgrade a specific package
+- Install, remove, or purge packages
+- Search packages and inspect package details
+- List installed packages and available upgrades
+- Show, hold, and unhold packages
 
-1. 'git clone https://github.com/TheJuicePapi/updateme.git'
-2. 'cd updateme'
-3. 'sudo chmod +x install.sh updateme.py'
-4. 'sudo ./install.sh'
-5. Exit and open a new terminal to use 'updateme' shortcut
+### Cleanup crew
 
- 
--------------------------------
+- Autoremove unused dependencies
+- Autoclean obsolete cache files
+- Clean the apt package cache
 
-Dependencies
+### System dashboard
 
+- System information
+- Hostname details
+- Memory usage
+- System load
+- Disk usage report
+- Hardware information
+- Process snapshot sorted by memory usage
 
-For this script to work, you will need Python 3 and apt package manager. The install.sh script should automatically handle these dependencies. If needed, manually install them using:
+### Network tools
 
-    sudo apt-get install -y python3
-    
-------------------------------
+- Network interfaces
+- Routing table
+- Listening ports
+- DNS information
 
-This script has been tested on an RPI 4b running a kali linux arm.
+### Logs, services, and power
+
+- Failed services
+- Running services
+- Recent journal error logs
+- Interactive-only reboot and power-off confirmations
+- Exit
+
+## Installation
+
+```bash
+git clone https://github.com/TheJuicePapi/updateme.git
+cd updateme
+chmod +x install.sh
+sudo ./install.sh
+```
+
+Open a new terminal and run:
+
+```bash
+updateme
+```
+
+## Usage
+
+Run the interactive menu:
+
+```bash
+updateme
+```
+
+Open the menu without running `apt-get update` first:
+
+```bash
+updateme --skip-initial-update
+```
+
+Show command-line help:
+
+```bash
+updateme --help
+```
+
+## Requirements
+
+- Debian-based Linux distribution
+- Python 3
+- `apt` and `apt-get`
+- `sudo` when running as a non-root user
+
+This script has been tested on an RPI 4b running Kali Linux ARM.
