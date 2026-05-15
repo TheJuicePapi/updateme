@@ -1,21 +1,23 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-# Check if running as root
-if [ "$EUID" -ne 0 ]; then
-    echo "Please run as root"
-    exit
+if [[ "${EUID}" -ne 0 ]]; then
+    echo "Please run as root (for example: sudo ./install.sh)" >&2
+    exit 1
 fi
 
-# Install required packages (adjust based on your needs)
+if ! command -v apt-get >/dev/null 2>&1; then
+    echo "apt-get is required. This installer is intended for Debian-based systems." >&2
+    exit 1
+fi
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+TARGET="/usr/local/bin/updateme"
+
 apt-get update
-apt-get upgrade -y
-
-# Install Python dependencies
-# No dependencies needed
-
-# Create symbolic link for updateme.py
-ln -s "$(pwd)/updateme.py" /usr/local/bin/updateme
+apt-get install -y python3
+chmod +x "${SCRIPT_DIR}/updateme.py"
+ln -sfn "${SCRIPT_DIR}/updateme.py" "${TARGET}"
 
 clear
-
-echo "Installation complete and shortcut created! Launch a new terminal and you'll be able to run 'updateme' from any directory!"
+echo "Installation complete! Run 'updateme' from any directory."
