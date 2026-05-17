@@ -1,7 +1,7 @@
 <img width="1448" height="1086" alt="UpdatemeV2 0 May 14, 2026" src="https://github.com/user-attachments/assets/cca33fa5-756c-43e0-ac50-e3c173df4abf" />
 
 
-# Updateme - by TheJuicePapi
+# Updateme - by WastelandSYS
 
 <img width="1032" height="1012" alt="updatemeV2 0" src="https://github.com/user-attachments/assets/2323e422-3a5c-4e32-a278-091d6dbe2295" />
 
@@ -79,7 +79,7 @@ Updateme is an interactive Python helper for routine maintenance on Debian-based
 ## Installation
 
 ```bash
-git clone https://github.com/TheJuicePapi/updateme.git
+git clone https://github.com/WastelandSYS/updateme.git
 cd updateme
 chmod +x install.sh
 sudo ./install.sh
