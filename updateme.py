@@ -48,7 +48,7 @@ ART_LINES = [
     r"\__,_/ .___/\__,_/\__,_/\__/\___/_/ /_/ /_/\___/  ",
     r"     /_/                                           ",
 ]
-TAGLINE = "Debian maintenance command center • by TheJuicePapi"
+TAGLINE = "Debian maintenance command center • by WastelandSYS"
 
 
 @dataclass(frozen=True)
